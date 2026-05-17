@@ -1,0 +1,79 @@
+<view class="container">
+  <view class="hero">
+    <text class="hero-title">AI 作文批改</text>
+    <text class="hero-subtitle">拍照上传，30 秒获取专业批改报告</text>
+  </view>
+
+  <view class="actions">
+    <button class="action-btn primary" bindtap="onTakePhoto">
+      <view class="action-dot action-dot--camera"></view>
+      <view class="action-text">
+        <text class="action-title">拍照上传</text>
+        <text class="action-desc">拍摄手写作文</text>
+      </view>
+    </button>
+
+    <button class="action-btn" bindtap="onChooseAlbum">
+      <view class="action-dot action-dot--album"></view>
+      <view class="action-text">
+        <text class="action-title">从相册选择</text>
+        <text class="action-desc">选择已有的作文图片</text>
+      </view>
+    </button>
+
+    <button class="action-btn text-input" bindtap="onManualInput">
+      <view class="action-dot action-dot--text"></view>
+      <view class="action-text">
+        <text class="action-title">手动输入</text>
+        <text class="action-desc">直接输入或粘贴作文文字</text>
+      </view>
+    </button>
+  </view>
+
+  <view class="usage-tip" wx:if="{{dailyUsage >= 0}}">
+    <text>今日剩余 <text class="count">{{remainingUsage}}</text> 次免费批改</text>
+  </view>
+
+  <!-- 加载态 -->
+  <view wx:if="{{loadingRecent}}">
+    <view class="skeleton-item" wx:for="{{[1,2,3]}}" wx:key="*this">
+      <view class="skeleton-circle"></view>
+      <view class="skeleton-lines">
+        <view class="skeleton-line w-60"></view>
+        <view class="skeleton-line w-40"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 最近批改 -->
+  <view class="recent-section" wx:elif="{{recentReports.length > 0}}">
+    <view class="section-header">
+      <text class="section-title">最近批改</text>
+      <text class="section-more" bindtap="onViewHistory">查看全部</text>
+    </view>
+    <scroll-view scroll-y class="recent-scroll" wx:if="{{recentReports.length > 3}}">
+      <view wx:for="{{recentReports}}" wx:key="_id">
+        <view class="recent-item" bindtap="onViewReport" data-id="{{item._id}}">
+          <view class="recent-score">{{item.overall_score}}</view>
+          <view class="recent-info">
+            <text class="recent-title">{{item.essay_title || '未命名作文'}}</text>
+            <text class="recent-time">{{item.timeAgo}}</text>
+          </view>
+          <text class="recent-level" style="color: {{item.levelColor}}">{{item.level}}</text>
+        </view>
+      </view>
+    </scroll-view>
+    <view wx:else>
+      <view wx:for="{{recentReports}}" wx:key="_id">
+        <view class="recent-item" bindtap="onViewReport" data-id="{{item._id}}">
+          <view class="recent-score">{{item.overall_score}}</view>
+          <view class="recent-info">
+            <text class="recent-title">{{item.essay_title || '未命名作文'}}</text>
+            <text class="recent-time">{{item.timeAgo}}</text>
+          </view>
+          <text class="recent-level" style="color: {{item.levelColor}}">{{item.level}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

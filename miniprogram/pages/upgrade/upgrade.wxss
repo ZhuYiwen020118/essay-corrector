@@ -1,0 +1,130 @@
+/* ═══════════════ Upgrade ═══════════════ */
+
+.upgrade-hero {
+  text-align: center;
+  padding: 40rpx 0 32rpx;
+}
+.upgrade-title {
+  display: block;
+  font-size: var(--t-xl);
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8rpx;
+}
+.upgrade-subtitle {
+  font-size: var(--t-sm);
+  color: var(--text-hint);
+}
+
+.plan-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-md);
+  padding-bottom: 40rpx;
+}
+
+.plan-card {
+  position: relative;
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  padding: 36rpx 28rpx;
+  box-shadow: var(--shadow-sm);
+  border: 3rpx solid var(--border-light);
+  text-align: center;
+}
+
+.plan-card.highlight {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-md);
+  background: linear-gradient(180deg, var(--gold-wash) 0%, var(--surface) 120rpx);
+}
+
+.plan-card.current {
+  border-color: var(--gold-border);
+  background: var(--gold-wash);
+}
+
+.plan-badge {
+  position: absolute;
+  top: -2rpx;
+  right: 24rpx;
+  padding: 6rpx 24rpx;
+  border-radius: 0 0 var(--r-sm) var(--r-sm);
+  font-size: 20rpx;
+  font-weight: 700;
+  background: var(--gold);
+  color: #FFF;
+}
+.current-badge {
+  background: var(--text-hint);
+}
+
+.plan-name {
+  display: block;
+  font-size: var(--t-lg);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16rpx;
+}
+
+.plan-price {
+  margin-bottom: 28rpx;
+}
+.price-value {
+  font-size: 64rpx;
+  font-weight: 900;
+  color: var(--gold-dark);
+  font-family: "Menlo", "Monaco", monospace;
+}
+.price-period {
+  font-size: var(--t-sm);
+  color: var(--text-hint);
+}
+
+.plan-features {
+  text-align: left;
+  margin-bottom: 28rpx;
+}
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  padding: 10rpx 0;
+  font-size: var(--t-sm);
+  color: var(--text-secondary);
+}
+.feature-check {
+  color: var(--green);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.plan-btn {
+  width: 100%;
+  padding: 24rpx;
+  border-radius: var(--r-full);
+  font-size: var(--t-base);
+  font-weight: 700;
+  border: 3rpx solid var(--border-light);
+  background: var(--surface);
+  color: var(--text-secondary);
+  min-height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.plan-btn::after { border: none; }
+.plan-btn.primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: #FFF;
+  border-color: transparent;
+  box-shadow: 0 8rpx 24rpx rgba(212, 168, 83, 0.35);
+}
+.plan-btn.disabled {
+  background: var(--border-light);
+  color: var(--text-hint);
+}
+.plan-btn.primary:active {
+  opacity: 0.85;
+  transform: scale(0.98);
+}

@@ -1,0 +1,100 @@
+/* ═══════════════ Reference List ═══════════════ */
+
+.filter-section {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--s-sm);
+}
+.filter-label {
+  font-size: var(--t-sm);
+  font-weight: 700;
+  color: var(--text);
+  padding-top: 14rpx;
+  width: 80rpx;
+  flex-shrink: 0;
+}
+.filter-scroll {
+  flex: 1;
+  white-space: nowrap;
+}
+.filter-row {
+  display: flex;
+  gap: var(--s-xs);
+}
+.filter-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 12rpx 24rpx;
+  border-radius: var(--r-full);
+  border: 2rpx solid var(--border-light);
+  font-size: var(--t-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--surface);
+  flex-shrink: 0;
+  min-height: 56rpx;
+}
+.filter-tag.active {
+  border-color: var(--gold);
+  color: var(--gold-dark);
+  background: var(--gold-wash);
+}
+
+/* Essay cards */
+.essay-card {
+  cursor: pointer;
+}
+.essay-card:active {
+  background: var(--gold-wash);
+}
+.essay-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16rpx;
+  gap: 16rpx;
+}
+.essay-title {
+  font-size: var(--t-md);
+  font-weight: 700;
+  color: var(--text);
+  flex: 1;
+  min-width: 0;
+}
+.essay-tags {
+  display: flex;
+  gap: 8rpx;
+  flex-shrink: 0;
+}
+.essay-tag {
+  padding: 4rpx 16rpx;
+  border-radius: var(--r-full);
+  font-size: 20rpx;
+  font-weight: 600;
+}
+.essay-tag.grade {
+  background: var(--gold-wash);
+  color: var(--gold-dark);
+}
+.essay-tag.genre {
+  background: var(--green-bg);
+  color: var(--green-dark);
+}
+.essay-excerpt {
+  display: block;
+  font-size: var(--t-sm);
+  color: var(--text-secondary);
+  line-height: 1.8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.essay-more {
+  display: block;
+  margin-top: 16rpx;
+  font-size: var(--t-sm);
+  color: var(--gold-dark);
+  font-weight: 600;
+}

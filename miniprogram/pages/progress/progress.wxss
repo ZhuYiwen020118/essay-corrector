@@ -1,0 +1,109 @@
+/* ═══════════════ Progress ═══════════════ */
+
+.stats-row {
+  display: flex;
+  gap: var(--s-sm);
+  margin-bottom: var(--s-sm);
+}
+
+.stat-card {
+  flex: 1;
+  background: var(--surface);
+  border-radius: var(--r-md);
+  padding: 24rpx 16rpx;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  border: 2rpx solid var(--border-light);
+}
+
+.stat-value {
+  display: block;
+  font-size: 48rpx;
+  font-weight: 900;
+  line-height: 1.1;
+  font-family: "Menlo", "Monaco", monospace;
+}
+.stat-value.gold  { color: var(--gold); }
+.stat-value.green { color: var(--green); }
+.stat-value.blue  { color: var(--blue); }
+.stat-value.red   { color: var(--red); }
+
+.stat-label {
+  display: block;
+  font-size: var(--t-xs);
+  color: var(--text-hint);
+  margin-top: 6rpx;
+}
+
+.trend-card {
+  flex: 2;
+}
+
+/* Chart */
+.chart-card {
+  padding-bottom: 16rpx;
+}
+.card-title {
+  font-size: var(--t-base);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16rpx;
+}
+.trend-canvas {
+  width: 100%;
+  height: 360rpx;
+}
+
+/* Mini list */
+.mini-list {
+  max-height: 600rpx;
+  overflow-y: auto;
+}
+.mini-item {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0;
+  border-bottom: 2rpx solid var(--border-light);
+  gap: 16rpx;
+}
+.mini-item:last-child { border-bottom: none; }
+.mini-score {
+  font-size: var(--t-md);
+  font-weight: 900;
+  width: 60rpx;
+  text-align: center;
+  flex-shrink: 0;
+}
+.mini-title {
+  flex: 1;
+  font-size: var(--t-sm);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mini-date {
+  font-size: var(--t-xs);
+  color: var(--text-hint);
+  flex-shrink: 0;
+}
+
+/* Loading / Empty */
+.loading {
+  text-align: center;
+  padding: 120rpx 0;
+}
+.loading-text {
+  font-size: var(--t-sm);
+  color: var(--text-hint);
+}
+.empty-btn {
+  background: var(--gold);
+  color: #FFF;
+  border-radius: var(--r-full);
+  padding: 20rpx 48rpx;
+  font-size: var(--t-base);
+  font-weight: 600;
+  border: none;
+  min-height: 88rpx;
+}
+.empty-btn::after { border: none; }

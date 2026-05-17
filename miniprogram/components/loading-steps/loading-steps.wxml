@@ -1,0 +1,21 @@
+<view class="loading-steps">
+  <view
+    class="step {{index < currentStep ? 'done' : ''}} {{index === currentStep ? 'active' : ''}}"
+    wx:for="{{steps}}"
+    wx:key="index"
+  >
+    <view class="step-indicator">
+      <text wx:if="{{index < currentStep}}" class="step-check">✓</text>
+      <text wx:elif="{{index === currentStep}}" class="step-icon">{{item.icon}}</text>
+      <text wx:else class="step-num">{{index + 1}}</text>
+    </view>
+    <view class="step-body">
+      <text class="step-label {{index === currentStep ? 'pulse' : ''}}">{{item.label}}</text>
+      <view wx:if="{{index === currentStep}}" class="step-progress">
+        <view class="progress-bar">
+          <view class="progress-fill"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

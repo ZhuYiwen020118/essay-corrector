@@ -1,0 +1,196 @@
+/* ═══════════════ Homepage ═══════════════ */
+
+.hero {
+  padding: 32rpx 0 28rpx;
+  text-align: center;
+}
+.hero-title {
+  display: block;
+  font-size: var(--t-2xl);
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -1rpx;
+  line-height: 1.2;
+}
+.hero-subtitle {
+  display: block;
+  font-size: var(--t-sm);
+  color: var(--text-secondary);
+  margin-top: var(--s-xs);
+}
+
+/* Action buttons */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-sm);
+  margin-bottom: var(--s-lg);
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 28rpx;
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  border: 3rpx solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+  line-height: normal;
+  box-sizing: border-box;
+  min-height: 120rpx;
+}
+.action-btn::after { border: none; }
+
+.action-btn.primary {
+  background: linear-gradient(135deg, var(--gold-wash), var(--surface));
+  border-color: var(--gold-border);
+  box-shadow: var(--shadow-md);
+}
+.action-btn.text-input {
+  border-style: dashed;
+  border-color: var(--border);
+  background: var(--bg);
+}
+
+.action-btn:active {
+  opacity: 0.8;
+  transform: scale(0.99);
+}
+
+/* Dot indicator for buttons */
+.action-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+.action-dot--camera { background: var(--gold); }
+.action-dot--album  { background: var(--gold-dark); }
+.action-dot--text   { background: var(--gold-light); }
+
+.action-text { flex: 1; }
+.action-title {
+  display: block;
+  font-size: var(--t-base);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4rpx;
+}
+.action-desc {
+  display: block;
+  font-size: var(--t-xs);
+  color: var(--text-hint);
+}
+
+/* Usage tip */
+.usage-tip {
+  text-align: center;
+  margin-bottom: var(--s-lg);
+}
+.usage-tip text {
+  display: inline-block;
+  padding: 14rpx 32rpx;
+  background: var(--gold-wash);
+  border-radius: var(--r-full);
+  font-size: var(--t-sm);
+  color: var(--gold-dark);
+  font-weight: 600;
+}
+.usage-tip .count {
+  font-weight: 800;
+  color: var(--gold);
+}
+
+/* Recent reports */
+.recent-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  background: var(--surface);
+  border-radius: var(--r-md);
+  margin-bottom: var(--s-sm);
+  box-shadow: var(--shadow-sm);
+  border: 2rpx solid var(--border-light);
+}
+.recent-item:active {
+  background: var(--gold-wash);
+}
+
+.recent-score {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  background: var(--gold-wash);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  font-weight: 800;
+  color: var(--gold-dark);
+  flex-shrink: 0;
+}
+
+.recent-info {
+  flex: 1;
+  margin-left: 20rpx;
+  min-width: 0;
+}
+.recent-title {
+  display: block;
+  font-size: var(--t-base);
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.recent-time {
+  display: block;
+  font-size: var(--t-xs);
+  color: var(--text-hint);
+  margin-top: 4rpx;
+}
+
+.recent-scroll {
+  max-height: 600rpx;
+}
+
+/* Skeleton loading */
+.skeleton-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  background: var(--surface);
+  border-radius: var(--r-md);
+  margin-bottom: var(--s-sm);
+}
+.skeleton-circle {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  background: var(--border-light);
+  flex-shrink: 0;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+.skeleton-lines {
+  flex: 1;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+.skeleton-line {
+  height: 24rpx;
+  background: var(--border-light);
+  border-radius: 6rpx;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+.skeleton-line.w-60 { width: 60%; }
+.skeleton-line.w-40 { width: 40%; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 0.8; }
+}

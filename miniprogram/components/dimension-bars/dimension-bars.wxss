@@ -1,0 +1,71 @@
+/* Dimension Bars — 分项得分 */
+.dim-item {
+  margin-bottom: 28rpx;
+}
+.dim-item:last-child { margin-bottom: 0; }
+
+.dim-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10rpx;
+}
+.dim-label {
+  font-size: var(--t-sm);
+  font-weight: 600;
+}
+.dim-score {
+  display: flex;
+  align-items: baseline;
+}
+.dim-got {
+  font-size: 32rpx;
+  font-weight: 800;
+  color: var(--gold-dark);
+}
+.dim-max {
+  font-size: var(--t-xs);
+  color: var(--text-hint);
+}
+
+.dim-bar-bg {
+  height: 8rpx;
+  background: var(--border-light);
+  border-radius: 4rpx;
+  overflow: hidden;
+  margin-bottom: 12rpx;
+}
+.dim-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 4rpx;
+  transition: width 600ms ease-out;
+}
+
+.dim-strength,
+.dim-weakness {
+  display: flex;
+  align-items: flex-start;
+  gap: 12rpx;
+  padding: 12rpx 16rpx;
+  margin-top: 8rpx;
+  border-radius: var(--r-sm);
+  font-size: var(--t-xs);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.dim-strength {
+  background: var(--green-bg);
+  border-left: 4rpx solid var(--green);
+}
+.dim-weakness {
+  background: var(--amber-bg);
+  border-left: 4rpx solid var(--amber);
+}
+.dim-tag {
+  font-weight: 700;
+  flex-shrink: 0;
+  font-size: var(--t-xs);
+}
+.dim-strength .dim-tag { color: var(--green); }
+.dim-weakness .dim-tag { color: var(--amber); }

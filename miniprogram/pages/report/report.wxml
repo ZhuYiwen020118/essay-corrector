@@ -1,0 +1,74 @@
+<view class="container" wx:if="{{!loading && report}}">
+  <!-- 综合评分 -->
+  <view class="score-hero">
+    <score-ring
+      score="{{report.overall_score}}"
+      level="{{report.level}}"
+      levelLabel="{{levelInfo.label}}"
+      scoreColor="{{levelInfo.color}}"
+      stars="{{levelInfo.stars}}"
+    ></score-ring>
+  </view>
+
+  <!-- 分项得分 -->
+  <view class="card dims-card">
+    <view class="card-title">分项得分</view>
+    <dimension-bars dimensions="{{report.dimensions}}"></dimension-bars>
+  </view>
+
+  <!-- AI 评语 -->
+  <view class="card enc-card" wx:if="{{report.encouragement}}">
+    <view class="card-title">AI 评语</view>
+    <text class="encouragement">{{report.encouragement}}</text>
+  </view>
+
+  <!-- 逐句批注 -->
+  <view class="card corr-card" wx:if="{{report.corrections.length > 0}}">
+    <view class="card-title">逐句批注 <text class="card-count">{{report.corrections.length}}</text></view>
+    <view class="correction-item" wx:for="{{report.corrections}}" wx:key="index">
+      <view class="corr-bar corr-bar--{{item.type}}"></view>
+      <view class="corr-body">
+        <view class="corr-header">
+          <text class="corr-type-label">{{correctionTypes[item.type].label}}</text>
+          <text class="corr-severity {{item.severity}}">{{item.severity === 'major' ? '重要' : '建议'}}</text>
+        </view>
+        <view class="corr-original">{{item.original}}</view>
+        <view class="corr-suggestion" wx:if="{{item.suggestion}}">{{item.suggestion}}</view>
+        <view class="corr-comment" wx:if="{{item.comment}}">{{item.comment}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 提升建议 -->
+  <view class="card" wx:if="{{report.overall_advice.length > 0}}">
+    <view class="card-title">提升建议</view>
+    <view class="advice-list">
+      <view class="advice-item" wx:for="{{report.overall_advice}}" wx:key="*this">
+        <view class="advice-dot"></view>
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 精彩语句 -->
+  <view class="card" wx:if="{{report.good_sentences.length > 0}}">
+    <view class="card-title">精彩语句</view>
+    <view class="good-sentence" wx:for="{{report.good_sentences}}" wx:key="*this">
+      <text>{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 底部操作 -->
+  <view class="bottom-actions">
+    <button class="btn-reference" bindtap="onViewReference">查看范文</button>
+  </view>
+</view>
+
+<!-- 加载骨架屏 -->
+<view class="state-box" wx:if="{{loading}}">
+  <view class="skeleton skeleton-hero"></view>
+  <view class="skeleton skeleton-bar"></view>
+  <view class="skeleton skeleton-bar short"></view>
+  <view class="skeleton skeleton-text"></view>
+</view>
+

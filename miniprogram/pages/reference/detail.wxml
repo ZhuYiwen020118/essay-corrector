@@ -1,0 +1,27 @@
+<view class="container" wx:if="{{!loading && essay}}">
+  <view class="card">
+    <view class="detail-header">
+      <text class="detail-title">{{essay.title}}</text>
+      <view class="detail-tags">
+        <text class="detail-tag grade">小学{{essay.grade}}年级</text>
+        <text class="detail-tag genre">{{essay.genreLabel}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">范文正文</view>
+    <view class="essay-body">
+      <text class="essay-paragraph" wx:for="{{essay.paragraphs}}" wx:key="index">{{item}}</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">AI 赏析</view>
+    <text class="analysis-text">{{essay.analysis}}</text>
+  </view>
+</view>
+
+<view class="loading-container" wx:if="{{loading}}">
+  <text class="loading-text">加载中...</text>
+</view>

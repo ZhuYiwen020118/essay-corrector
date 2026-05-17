@@ -1,0 +1,74 @@
+/* ═══════════════ Reference Detail ═══════════════ */
+
+.detail-header {
+  text-align: center;
+}
+.detail-title {
+  display: block;
+  font-size: var(--t-xl);
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 16rpx;
+}
+.detail-tags {
+  display: flex;
+  gap: 12rpx;
+  justify-content: center;
+}
+.detail-tag {
+  padding: 8rpx 24rpx;
+  border-radius: var(--r-full);
+  font-size: var(--t-xs);
+  font-weight: 600;
+}
+.detail-tag.grade {
+  background: var(--gold-wash);
+  color: var(--gold-dark);
+}
+.detail-tag.genre {
+  background: var(--green-bg);
+  color: var(--green-dark);
+}
+
+/* Essay body */
+.card-title {
+  font-size: var(--t-base);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 20rpx;
+}
+.essay-body {
+  line-height: 2.2;
+}
+.essay-paragraph {
+  display: block;
+  font-size: var(--t-base);
+  color: var(--text);
+  text-indent: 2em;
+  margin-bottom: 16rpx;
+}
+.essay-paragraph:last-child { margin-bottom: 0; }
+
+/* Analysis */
+.analysis-text {
+  display: block;
+  font-size: var(--t-base);
+  color: var(--text-secondary);
+  line-height: 2;
+  padding: 20rpx 24rpx;
+  background: var(--gold-wash);
+  border-radius: var(--r-md);
+  border-left: 6rpx solid var(--gold);
+}
+
+/* Loading */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.loading-text {
+  font-size: var(--t-sm);
+  color: var(--text-hint);
+}

@@ -1,0 +1,67 @@
+<view class="container">
+  <!-- 错误态 -->
+  <view class="empty-state" wx:if="{{error}}">
+    <view class="empty-icon">!</view>
+    <text class="empty-text">加载失败</text>
+    <button class="empty-btn" bindtap="onRetry">点击重试</button>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:elif="{{empty}}">
+    <view class="empty-icon">—</view>
+    <text class="empty-text">批改 2 篇以上作文后，可查看进步趋势</text>
+    <button class="empty-btn" bindtap="onRetry">刷新</button>
+  </view>
+
+  <!-- 加载中 -->
+  <view class="loading" wx:elif="{{loading}}">
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <!-- 数据展示 -->
+  <view wx:else>
+    <view class="stats-row">
+      <view class="stat-card">
+        <text class="stat-value gold">{{stats.total}}</text>
+        <text class="stat-label">累计批改</text>
+      </view>
+      <view class="stat-card">
+        <text class="stat-value green">{{stats.highest}}</text>
+        <text class="stat-label">最高分</text>
+      </view>
+      <view class="stat-card">
+        <text class="stat-value blue">{{stats.average}}</text>
+        <text class="stat-label">平均分</text>
+      </view>
+    </view>
+
+    <view class="stats-row">
+      <view class="stat-card">
+        <text class="stat-value red">{{stats.lowest}}</text>
+        <text class="stat-label">最低分</text>
+      </view>
+      <view class="stat-card trend-card">
+        <text class="stat-value {{stats.trend >= 0 ? 'green' : 'red'}}">
+          {{stats.trend >= 0 ? '+' : ''}}{{stats.trend}}
+        </text>
+        <text class="stat-label">近5篇趋势</text>
+      </view>
+    </view>
+
+    <view class="card chart-card" wx:if="{{reports.length >= 2}}">
+      <view class="card-title">评分趋势</view>
+      <canvas canvas-id="trendCanvas" id="trendCanvas" class="trend-canvas"></canvas>
+    </view>
+
+    <view class="card">
+      <view class="card-title">最近批改</view>
+      <view class="mini-list">
+        <view class="mini-item" wx:for="{{reports}}" wx:key="_id" wx:for-item="r">
+          <text class="mini-score" style="color: {{r.levelColor}}">{{r.overall_score}}</text>
+          <text class="mini-title">{{r.essay_title || '未命名'}}</text>
+          <text class="mini-date">{{r.dateLabel}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

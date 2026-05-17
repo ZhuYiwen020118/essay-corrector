@@ -1,0 +1,22 @@
+<view class="dimension-bars">
+  <view class="dim-item" wx:for="{{dimList}}" wx:key="key">
+    <view class="dim-header">
+      <text class="dim-label">{{item.label}}</text>
+      <text class="dim-score">
+        <text class="dim-got">{{item.score}}</text>
+        <text class="dim-max"> / {{item.maxScore}}</text>
+      </text>
+    </view>
+    <view class="dim-bar-bg">
+      <view class="dim-bar-fill" style="width: {{item.percent}}%"></view>
+    </view>
+    <view class="dim-strength" wx:if="{{item.strength}}">
+      <text class="dim-tag">优点</text>
+      <text>{{item.strength}}</text>
+    </view>
+    <view class="dim-weakness" wx:if="{{item.weakness}}">
+      <text class="dim-tag">不足</text>
+      <text>{{item.weakness}}</text>
+    </view>
+  </view>
+</view>

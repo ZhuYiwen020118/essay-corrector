@@ -1,0 +1,59 @@
+<view class="container">
+  <view class="history-header" wx:if="{{total > 0}}">
+    <text>共 <text class="count">{{total}}</text> 篇批改记录</text>
+  </view>
+
+  <!-- 加载态 -->
+  <view wx:if="{{loading && reports.length === 0}}">
+    <view class="skeleton-item" wx:for="{{[1,2,3]}}" wx:key="*this">
+      <view class="skeleton-circle"></view>
+      <view class="skeleton-lines">
+        <view class="skeleton-line w-60"></view>
+        <view class="skeleton-line w-40"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 错误态 -->
+  <view class="empty-state" wx:elif="{{error}}">
+    <view class="empty-icon">!</view>
+    <text class="empty-text">加载失败</text>
+    <button class="empty-btn" bindtap="onRetryLoad">点击重试</button>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:elif="{{!loading && reports.length === 0 && total === 0}}">
+    <view class="empty-icon">—</view>
+    <text class="empty-text">还没有批改记录</text>
+    <button class="empty-btn" bindtap="onGoHome">去批改第一篇作文</button>
+  </view>
+
+  <!-- 报告列表 -->
+  <scroll-view wx:else scroll-y class="report-scroll">
+    <view class="report-list">
+      <view
+        class="report-item card"
+        wx:for="{{reports}}"
+        wx:key="_id"
+        bindtap="onViewReport"
+        data-id="{{item._id}}"
+      >
+        <view class="report-left">
+          <text class="report-score" style="color: {{item.levelInfo.color}}">{{item.overall_score}}</text>
+          <text class="report-unit">分</text>
+        </view>
+        <view class="report-center">
+          <text class="report-title">{{item.essay_title || '未命名作文'}}</text>
+          <text class="report-preview">{{item.essay_content || '点击查看详情'}}</text>
+          <text class="report-time">{{item.timeAgo}}</text>
+        </view>
+        <view class="report-right">
+          <text class="report-level" style="color: {{item.levelInfo.color}}">{{item.level}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="load-more" wx:if="{{loading && reports.length > 0}}"><text>加载中...</text></view>
+    <view class="load-more" wx:elif="{{!hasMore && reports.length > 0}}"><text>已加载全部</text></view>
+  </scroll-view>
+</view>

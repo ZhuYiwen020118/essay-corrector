@@ -1,0 +1,58 @@
+<view class="container">
+  <view class="form-group">
+    <view class="form-label">作文标题</view>
+    <input class="form-input" placeholder="输入作文标题（选填）" value="{{title}}" bindinput="onTitleInput" maxlength="50"/>
+  </view>
+
+  <view class="form-group">
+    <view class="form-label">选择年级</view>
+    <picker mode="selector" range="{{grades}}" range-key="label" bindchange="onGradeChange">
+      <view class="picker-value">{{selectedGrade.label || '请选择年级'}}</view>
+    </picker>
+  </view>
+
+  <view class="form-group">
+    <view class="form-label">文体类型</view>
+    <view class="genre-tags">
+      <view
+        class="genre-tag {{genre === item.value ? 'active' : ''}}"
+        wx:for="{{genres}}"
+        wx:key="value"
+        bindtap="onGenreSelect"
+        data-value="{{item.value}}"
+      >{{item.label}}</view>
+    </view>
+  </view>
+
+  <view class="form-group">
+    <view class="form-label">作文内容</view>
+    <textarea
+      class="form-textarea"
+      placeholder="请输入或粘贴作文全文..."
+      value="{{text}}"
+      bindinput="onTextInput"
+      maxlength="5000"
+      auto-height
+    />
+    <view class="word-count">{{text.length}} / 5000</view>
+  </view>
+
+  <button
+    class="submit-btn {{text.length > 0 ? 'active' : ''}}"
+    bindtap="onSubmit"
+    disabled="{{text.length === 0 || submitting}}"
+  >
+    {{submitting ? '正在上传...' : '开始批改'}}
+  </button>
+
+  <!-- Debug logs -->
+  <view class="debug-card card" wx:if="{{showDebug}}">
+    <view class="debug-header">
+      <text class="debug-title">调试日志</text>
+      <text class="debug-hint">截图发给开发者</text>
+    </view>
+    <scroll-view scroll-y class="debug-scroll">
+      <text class="debug-line" wx:for="{{debugLogs}}" wx:key="index">{{item}}</text>
+    </scroll-view>
+  </view>
+</view>

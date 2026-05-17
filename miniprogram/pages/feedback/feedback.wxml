@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="card">
+    <view class="card-title">反馈内容</view>
+    <textarea class="feedback-textarea" placeholder="请描述您遇到的问题或建议..." value="{{content}}" bindinput="onInput" maxlength="1000" auto-height />
+    <view class="word-count">{{content.length}} / 1000</view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">联系方式（选填）</view>
+    <input class="form-input" placeholder="方便我们回复您（微信/邮箱）" value="{{contact}}" bindinput="onContactInput" maxlength="100" />
+  </view>
+
+  <button class="submit-btn {{content.length > 0 ? 'active' : ''}}" bindtap="onSubmit" disabled="{{content.length === 0 || submitting}}">
+    {{submitting ? '提交中...' : '提交反馈'}}
+  </button>
+
+  <view class="card" wx:if="{{submitted}}">
+    <text class="success-text">感谢您的反馈！我们会尽快处理。</text>
+  </view>
+
+  <view class="email-hint">
+    <text>或直接发送邮件至 25435825@life.hkbu.edu.hk</text>
+  </view>
+</view>

@@ -1,0 +1,57 @@
+<view class="container">
+  <view class="card">
+    <text class="privacy-title">隐私政策</text>
+    <text class="privacy-date">更新日期：2026年5月</text>
+
+    <view class="privacy-section">
+      <text class="privacy-heading">一、信息收集</text>
+      <text class="privacy-text">本小程序在提供服务过程中，可能收集以下信息：
+1. 您上传的作文图片和文字内容，用于OCR识别和AI批改；
+2. 您的微信OpenID，用于识别用户身份和保存批改记录；
+3. 您的头像和昵称（仅在您主动授权后获取），用于个人页面展示。</text>
+    </view>
+
+    <view class="privacy-section">
+      <text class="privacy-heading">二、信息使用</text>
+      <text class="privacy-text">我们收集的信息仅用于：
+1. 提供AI作文批改服务（OCR识别、智能评分、批注生成）；
+2. 保存您的批改历史记录，方便您随时查看；
+3. 统计分析以改进服务质量。</text>
+    </view>
+
+    <view class="privacy-section">
+      <text class="privacy-heading">三、信息存储</text>
+      <text class="privacy-text">您的作文内容和批改结果存储在微信云开发平台，采用加密传输和存储。我们不会将您的信息分享给任何第三方。</text>
+    </view>
+
+    <view class="privacy-section">
+      <text class="privacy-heading">四、用户权利</text>
+      <text class="privacy-text">您可以在小程序内查看、删除自己的批改记录。如需完全删除账号数据，请联系开发者。</text>
+    </view>
+
+    <view class="privacy-section">
+      <text class="privacy-heading">五、联系我们</text>
+      <text class="privacy-text">如对隐私政策有任何疑问，请通过以下方式联系我们：
+邮箱：25435825@life.hkbu.edu.hk</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <text class="privacy-title">用户协议</text>
+
+    <view class="privacy-section">
+      <text class="privacy-heading">一、服务说明</text>
+      <text class="privacy-text">本小程序提供基于AI技术的作文批改服务。批改结果由人工智能生成，仅供参考，不构成专业教学建议。</text>
+    </view>
+
+    <view class="privacy-section">
+      <text class="privacy-heading">二、使用规则</text>
+      <text class="privacy-text">您不得上传含有违法、暴力、色情等违规内容的作文。我们有权拒绝处理违规内容并采取相应措施。</text>
+    </view>
+
+    <view class="privacy-section">
+      <text class="privacy-heading">三、免责声明</text>
+      <text class="privacy-text">AI批改结果可能存在误差，我们不对因使用本服务而产生的任何直接或间接损失承担责任。</text>
+    </view>
+  </view>
+</view>

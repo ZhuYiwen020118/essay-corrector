@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "score-ring": "/components/score-ring/score-ring",
+    "dimension-bars": "/components/dimension-bars/dimension-bars"
+  },
+  "navigationBarTitleText": "批改报告"
+}

@@ -1,0 +1,82 @@
+<view class="container">
+  <!-- ========== 图片模式 ========== -->
+  <view wx:if="{{isImageMode}}">
+    <view class="image-preview card">
+      <image class="preview-img" src="{{imagePath}}" mode="widthFix" />
+    </view>
+
+    <!-- 上传中 / OCR中 -->
+    <view class="card step-card" wx:if="{{step === 'uploading' || step === 'ocr'}}">
+      <view class="ocr-loading">
+        <view class="ocr-spinner"></view>
+        <text class="ocr-status-text">{{stepLabel}}</text>
+      </view>
+    </view>
+
+    <!-- OCR 完成 → 编辑 + 提交 -->
+    <view wx:if="{{step === 'editing' || step === 'correcting'}}">
+      <view class="card">
+        <view class="form-group">
+          <view class="form-label">选择年级</view>
+          <picker mode="selector" range="{{grades}}" range-key="label" bindchange="onGradeChange">
+            <view class="picker-value">{{selectedGrade.label || '请选择年级'}}</view>
+          </picker>
+        </view>
+        <view class="form-group">
+          <view class="form-label">文体类型</view>
+          <view class="genre-tags">
+            <view class="genre-tag {{genre === item.value ? 'active' : ''}}"
+              wx:for="{{genres}}" wx:key="value"
+              bindtap="onGenreSelect" data-value="{{item.value}}">{{item.label}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="card">
+        <view class="form-label">作文内容 <text class="ocr-hint">（可修改）</text></view>
+        <textarea class="form-textarea" placeholder="AI 识别结果..." value="{{essayText}}"
+          bindinput="onTextInput" maxlength="5000" auto-height />
+        <view class="word-count">{{essayText.length}} / 5000</view>
+      </view>
+
+      <button class="submit-btn {{essayText.length >= 10 ? 'active' : ''}}"
+        bindtap="onSubmit" disabled="{{essayText.length < 10 || submitting}}">
+        {{step === 'correcting' ? 'AI 批改中...' : '开始批改'}}
+      </button>
+    </view>
+
+    <!-- 失败 -->
+    <view class="card error-card" wx:if="{{step === 'error'}}">
+      <view class="error-icon">!</view>
+      <text class="error-title">批改遇到问题</text>
+      <text class="error-detail">{{ocrError || errorMessage}}</text>
+      <view class="ocr-actions">
+        <button class="ocr-btn retry" bindtap="onRetryOCR" wx:if="{{ocrError}}">重新识别</button>
+        <button class="ocr-btn skip" bindtap="onSwitchToManual">返回首页</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- ========== 文本模式 ========== -->
+  <view wx:else>
+    <view class="card error-card" wx:if="{{errorMessage}}">
+      <view class="error-icon">!</view>
+      <text class="error-title">批改遇到问题</text>
+      <text class="error-detail">{{errorMessage}}</text>
+      <button class="retry-btn" bindtap="onRetry">返回重试</button>
+    </view>
+    <view wx:else class="card correcting-card">
+      <view class="correcting-title">AI 正在批改你的作文...</view>
+      <loading-steps currentStep="{{currentStep}}"></loading-steps>
+      <view class="correcting-tip">批改通常需要 5-15 秒</view>
+    </view>
+  </view>
+
+  <!-- 调试日志 -->
+  <view class="debug-card card" wx:if="{{showDebug}}">
+    <view class="debug-header"><text class="debug-title">调试日志</text></view>
+    <scroll-view scroll-y class="debug-scroll">
+      <text class="debug-line" wx:for="{{debugLogs}}" wx:key="index">{{item}}</text>
+    </scroll-view>
+  </view>
+</view>

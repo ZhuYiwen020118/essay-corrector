@@ -1,0 +1,135 @@
+/* ═══════════════ Manual Input ═══════════════ */
+
+.form-group {
+  margin-bottom: var(--s-lg);
+}
+.form-label {
+  display: block;
+  font-size: var(--t-sm);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: var(--s-sm);
+}
+
+.form-input {
+  width: 100%;
+  padding: 24rpx;
+  background: var(--surface);
+  border: 2rpx solid var(--border-light);
+  border-radius: var(--r-md);
+  font-size: var(--t-base);
+  color: var(--text);
+  box-sizing: border-box;
+}
+
+.picker-value {
+  padding: 24rpx;
+  background: var(--surface);
+  border: 2rpx solid var(--border-light);
+  border-radius: var(--r-md);
+  font-size: var(--t-base);
+  color: var(--text-secondary);
+}
+
+.genre-tags {
+  display: flex;
+  gap: var(--s-sm);
+  flex-wrap: wrap;
+}
+.genre-tag {
+  padding: 16rpx 32rpx;
+  border-radius: var(--r-full);
+  border: 2rpx solid var(--border-light);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--surface);
+  min-height: 72rpx;
+  display: flex;
+  align-items: center;
+}
+.genre-tag.active {
+  border-color: var(--gold);
+  color: var(--gold-dark);
+  background: var(--gold-wash);
+}
+
+.form-textarea {
+  width: 100%;
+  min-height: 420rpx;
+  padding: 24rpx;
+  background: var(--surface);
+  border: 2rpx solid var(--border-light);
+  border-radius: var(--r-lg);
+  font-size: var(--t-base);
+  color: var(--text);
+  box-sizing: border-box;
+  line-height: 2;
+}
+.word-count {
+  text-align: right;
+  font-size: var(--t-xs);
+  color: var(--text-hint);
+  margin-top: var(--s-xs);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 28rpx;
+  border-radius: var(--r-full);
+  background: var(--border);
+  color: var(--text-hint);
+  font-size: var(--t-base);
+  font-weight: 700;
+  border: none;
+  margin-top: var(--s-xl);
+  min-height: 96rpx;
+}
+.submit-btn::after { border: none; }
+.submit-btn.active {
+  background: var(--gold);
+  color: #FFF;
+  box-shadow: 0 6rpx 24rpx rgba(212, 168, 83, 0.3);
+}
+.submit-btn.active:active {
+  opacity: 0.85;
+  transform: scale(0.98);
+}
+
+/* Debug panel */
+.debug-card {
+  margin-top: var(--s-md);
+  background: var(--text);
+  color: var(--text-hint);
+  border-radius: var(--r-md);
+  padding: 20rpx;
+  border: none;
+}
+.debug-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12rpx;
+  padding-bottom: 12rpx;
+  border-bottom: 1rpx solid var(--text-secondary);
+}
+.debug-title {
+  font-size: var(--t-sm);
+  font-weight: 700;
+  color: var(--gold);
+}
+.debug-hint {
+  font-size: var(--t-xs);
+  color: var(--text-hint);
+}
+.debug-scroll {
+  max-height: 400rpx;
+  font-family: "Menlo", "Monaco", monospace;
+  font-size: 20rpx;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.debug-line {
+  display: block;
+  padding: 2rpx 0;
+}

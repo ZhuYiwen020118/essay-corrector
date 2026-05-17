@@ -1,0 +1,61 @@
+<view class="container">
+  <!-- 筛选栏 -->
+  <view class="filter-section">
+    <view class="filter-label">文体</view>
+    <scroll-view scroll-x class="filter-scroll">
+      <view class="filter-row">
+        <view class="filter-tag {{activeGenre === '' ? 'active' : ''}}" bindtap="onFilterGenre" data-value="">全部</view>
+        <view
+          class="filter-tag {{activeGenre === item.value ? 'active' : ''}}"
+          wx:for="{{genres}}"
+          wx:key="value"
+          bindtap="onFilterGenre"
+          data-value="{{item.value}}"
+        >{{item.label}}</view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="filter-section">
+    <view class="filter-label">年级</view>
+    <scroll-view scroll-x class="filter-scroll">
+      <view class="filter-row">
+        <view class="filter-tag {{activeGrade === 0 ? 'active' : ''}}" bindtap="onFilterGrade" data-value="0">全部</view>
+        <view
+          class="filter-tag {{activeGrade === item ? 'active' : ''}}"
+          wx:for="{{[3,4,5,6,7,8]}}"
+          wx:key="*this"
+          bindtap="onFilterGrade"
+          data-value="{{item}}"
+        >{{item}}年级</view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 范文列表 -->
+  <view class="essay-list" wx:if="{{filteredEssays.length > 0}}">
+    <view
+      class="essay-card card"
+      wx:for="{{filteredEssays}}"
+      wx:key="id"
+      bindtap="onViewEssay"
+      data-id="{{item.id}}"
+    >
+      <view class="essay-header">
+        <text class="essay-title">{{item.title}}</text>
+        <view class="essay-tags">
+          <text class="essay-tag grade">小学{{item.grade}}年级</text>
+          <text class="essay-tag genre">{{item.genreLabel}}</text>
+        </view>
+      </view>
+      <text class="essay-excerpt">{{item.excerpt}}</text>
+      <text class="essay-more">查看全文</text>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:else>
+    <view class="empty-icon">—</view>
+    <text class="empty-text">没有找到匹配的范文</text>
+  </view>
+</view>

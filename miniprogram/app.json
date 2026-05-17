@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/correcting/correcting",
+    "pages/report/report",
+    "pages/history/history",
+    "pages/me/me",
+    "pages/manual/manual",
+    "pages/progress/progress",
+    "pages/reference/reference",
+    "pages/reference/detail",
+    "pages/upgrade/upgrade",
+    "pages/privacy/privacy",
+    "pages/feedback/feedback"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#4A90D9",
+    "navigationBarTitleText": "AI 作文批改",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F5F7FA"
+  },
+  "permission": {
+    "scope.camera": {
+      "desc": "用于拍摄作文图片"
+    }
+  },
+  "tabBar": {
+    "color": "#B8A88A",
+    "selectedColor": "#B8923A",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab-home.png",
+        "selectedIconPath": "images/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/history/history",
+        "text": "历史",
+        "iconPath": "images/tab-history.png",
+        "selectedIconPath": "images/tab-history-active.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "images/tab-me.png",
+        "selectedIconPath": "images/tab-me-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

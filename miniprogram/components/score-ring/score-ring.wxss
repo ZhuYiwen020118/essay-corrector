@@ -1,0 +1,73 @@
+/* Score Ring — Canvas 环形评分 */
+.score-ring {
+  text-align: center;
+  animation: fadeIn 600ms ease-out;
+}
+
+@keyframes fadeIn {
+  0%   { opacity: 0; transform: translateY(12rpx); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.ring-container {
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+  margin: 0 auto 20rpx;
+}
+
+.ring-canvas {
+  width: 200rpx;
+  height: 200rpx;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ring-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+}
+
+.score-number {
+  font-size: 72rpx;
+  font-weight: 900;
+  line-height: 1;
+  display: block;
+  letter-spacing: -2rpx;
+}
+
+.score-unit {
+  display: block;
+  font-size: 24rpx;
+  color: var(--text-hint);
+  margin-top: 4rpx;
+}
+
+.ring-label {
+  margin-top: 0;
+}
+
+.level-text {
+  font-size: var(--t-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: 10rpx;
+  letter-spacing: 2rpx;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 6rpx;
+}
+
+.star {
+  font-size: 28rpx;
+}

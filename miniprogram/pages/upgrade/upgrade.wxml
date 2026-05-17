@@ -1,0 +1,39 @@
+<view class="container">
+  <view class="upgrade-hero">
+    <text class="upgrade-title">选择适合你的方案</text>
+    <text class="upgrade-subtitle">升级会员，解锁全部批改功能</text>
+  </view>
+
+  <view class="plan-list">
+    <view
+      class="plan-card {{item.highlight ? 'highlight' : ''}} {{currentMembership === item.key ? 'current' : ''}}"
+      wx:for="{{plans}}"
+      wx:key="key"
+    >
+      <view class="plan-badge" wx:if="{{item.highlight}}">推荐</view>
+      <view class="plan-badge current-badge" wx:if="{{currentMembership === item.key}}">当前</view>
+
+      <text class="plan-name">{{item.name}}</text>
+      <view class="plan-price">
+        <text class="price-value">{{item.price}}</text>
+        <text class="price-period">{{item.period}}</text>
+      </view>
+
+      <view class="plan-features">
+        <view class="feature-item" wx:for="{{item.features}}" wx:key="*this">
+          <text class="feature-check">✓</text>
+          <text>{{item}}</text>
+        </view>
+      </view>
+
+      <button
+        class="plan-btn {{item.highlight ? 'primary' : ''}} {{currentMembership === item.key ? 'disabled' : ''}}"
+        bindtap="onSelectPlan"
+        data-key="{{item.key}}"
+        disabled="{{currentMembership === item.key || item.key === 'free'}}"
+      >
+        {{currentMembership === item.key ? '当前方案' : (item.key === 'free' ? '免费使用' : '立即开通')}}
+      </button>
+    </view>
+  </view>
+</view>

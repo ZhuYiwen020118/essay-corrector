@@ -1,0 +1,17 @@
+<view class="score-ring">
+  <view class="ring-container">
+    <canvas type="2d" id="scoreCanvas" class="ring-canvas"></canvas>
+    <view class="ring-center">
+      <text class="score-number" style="color: {{scoreColor}}">{{score}}</text>
+      <text class="score-unit">分</text>
+    </view>
+  </view>
+  <view class="ring-label">
+    <text class="level-text" style="color: {{scoreColor}}">{{levelLabel}}</text>
+    <view class="stars">
+      <text wx:for="{{[1,2,3,4,5]}}" wx:key="*this"
+        class="star {{index < stars ? 'filled' : ''}}"
+        style="color: {{index < stars ? scoreColor : '#E8E8E8'}}">★</text>
+    </view>
+  </view>
+</view>

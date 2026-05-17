@@ -1,0 +1,65 @@
+.card-title {
+  font-size: var(--t-base);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16rpx;
+}
+.feedback-textarea {
+  width: 100%;
+  min-height: 280rpx;
+  padding: 20rpx;
+  background: var(--bg);
+  border: 2rpx solid var(--border-light);
+  border-radius: var(--r-md);
+  font-size: var(--t-base);
+  line-height: 1.8;
+  box-sizing: border-box;
+}
+.word-count {
+  text-align: right;
+  font-size: var(--t-xs);
+  color: var(--text-hint);
+  margin-top: var(--s-xs);
+}
+.form-input {
+  width: 100%;
+  padding: 24rpx;
+  background: var(--bg);
+  border: 2rpx solid var(--border-light);
+  border-radius: var(--r-md);
+  font-size: var(--t-base);
+  color: var(--text);
+  box-sizing: border-box;
+}
+.submit-btn {
+  width: 100%;
+  padding: 28rpx;
+  border-radius: var(--r-full);
+  background: var(--border);
+  color: var(--text-hint);
+  font-size: var(--t-base);
+  font-weight: 700;
+  border: none;
+  margin-top: var(--s-lg);
+  min-height: 96rpx;
+}
+.submit-btn::after { border: none; }
+.submit-btn.active {
+  background: var(--gold);
+  color: #FFF;
+}
+.submit-btn.active:active { opacity: 0.85; transform: scale(0.98); }
+.success-text {
+  display: block;
+  text-align: center;
+  font-size: var(--t-base);
+  color: var(--green);
+  font-weight: 600;
+  padding: 16rpx 0;
+}
+.email-hint {
+  text-align: center;
+  padding: 40rpx 0;
+  font-size: var(--t-xs);
+  color: var(--text-hint);
+}

@@ -1,0 +1,30 @@
+.privacy-title {
+  display: block;
+  font-size: var(--t-lg);
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8rpx;
+}
+.privacy-date {
+  display: block;
+  font-size: var(--t-xs);
+  color: var(--text-hint);
+  margin-bottom: 36rpx;
+}
+.privacy-section {
+  margin-bottom: 28rpx;
+}
+.privacy-heading {
+  display: block;
+  font-size: var(--t-base);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12rpx;
+}
+.privacy-text {
+  display: block;
+  font-size: var(--t-sm);
+  color: var(--text-secondary);
+  line-height: 1.8;
+  white-space: pre-line;
+}

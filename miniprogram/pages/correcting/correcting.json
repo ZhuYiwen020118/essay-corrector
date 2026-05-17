@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "loading-steps": "/components/loading-steps/loading-steps"
+  },
+  "navigationBarTitleText": "正在批改"
+}
